@@ -9,4 +9,4 @@ const routes = [
   { path: "/vote/:id", name: "vote", component: VoteView },
 ];
 
-export default createRouter({ history: createWebHistory(), routes });
+export default createRouter({ history: createWebHistory(), routes ,scrollBehavior() { return { top: 0 } } });
