@@ -1,49 +1,67 @@
 @import "tailwindcss";
 @reference "tailwindcss";
 
-/* ===== Base ===== */
+/* =======================
+   Base
+======================= */
 @layer base {
   :root { --brand: 37 99% 52%; }
   body { @apply antialiased bg-zinc-50 text-zinc-900 text-[15px]; }
-  img  { @apply select-none; }
+  img { @apply select-none; }
 }
 
-/* ===== Components ===== */
+/* =======================
+   Components
+======================= */
 @layer components {
   /* Layout */
   .container-app { @apply mx-auto max-w-6xl px-4; }
 
-  /* Header badge (สโลแกนเล็กๆ ใต้โลโก้ ถ้าอยากใช้) */
-  .brand-sub { @apply text-[11px] tracking-wide uppercase text-zinc-500; }
+  /* Links */
+  .link { @apply text-zinc-600 hover:text-zinc-900 underline-offset-4 hover:underline; }
 
-  /* Toolbar */
-  .toolbar { @apply flex flex-wrap items-center gap-3 rounded-xl border bg-white/85 p-3 shadow-sm backdrop-blur; }
+  /* Nav link (header) */
+  .nav-link {
+    @apply inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium
+           text-zinc-700/90 hover:text-zinc-900 hover:bg-zinc-100/70
+           focus:outline-none focus:ring-2 focus:ring-emerald-200;
+  }
 
   /* Buttons */
-  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition shadow-sm border bg-white hover:bg-zinc-50; }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium
+           transition-transform duration-150 ease-out shadow-sm border bg-white
+           hover:-translate-y-[1px] hover:shadow-md
+           focus:outline-none focus:ring-2 focus:ring-emerald-200;
+  }
   .btn-primary { @apply bg-emerald-600 text-white border-emerald-600 hover:opacity-90; }
+  .btn-muted   { @apply bg-zinc-100 border-zinc-200 hover:bg-zinc-200; }
+  .btn-outline { @apply border-zinc-300 text-zinc-800 hover:bg-zinc-50; }
+  .btn-ghost   { @apply border-transparent bg-transparent text-zinc-700 hover:bg-zinc-100; }
 
-  /* Fields */
-  .input { @apply w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400; }
-  .select { @apply w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 pr-8 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400; }
-  .textarea { @apply w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 min-h-[120px] text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400; }
+  /* Form fields */
+  .input {
+    @apply w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm
+           shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400;
+  }
+  .select {
+    @apply w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 pr-8 text-sm
+           shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400;
+  }
+  .textarea {
+    @apply w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 min-h-[120px] text-sm
+           shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:border-emerald-400;
+  }
 
   /* Cards */
   .card { @apply rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm; }
-  .card-hover { @apply transition hover:shadow-md; }
-  /* การ์ดข่าว + แถบสถานะซ้าย */
-  .news-card { @apply relative rounded-2xl border bg-white p-5 shadow-sm; }
-  .news-card-safe  { @apply border-zinc-200; }
-  .news-card-fake  { @apply border-zinc-200; }
-  .news-card-bar   { @apply absolute left-0 top-0 h-full w-1.5 rounded-l-2xl; }
-  .news-card-bar-safe { @apply bg-emerald-500/80; }
-  .news-card-bar-fake { @apply bg-red-500/80; }
+  .card-hover {
+    @apply transition-transform duration-150 ease-out
+           hover:-translate-y-[1px] hover:shadow-md;
+  }
 
   /* Badges */
   .badge { @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold; }
   .badge-green { @apply bg-emerald-100 text-emerald-700; }
-  .badge-red   { @apply bg-red-100 text-red-700; }
-
-  /* Divider (ใช้ในคอมเมนต์) */
-  .divider { @apply h-px w-full bg-zinc-200; }
+  .badge-red { @apply bg-red-100 text-red-700; }
 }
